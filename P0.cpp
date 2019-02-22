@@ -54,6 +54,9 @@ int main(int argc, char ** argv) {
 
 		}
 	}
+
+	input.close();
+	
 	else {
 	
 		while (getline(cin, line)) {
@@ -133,14 +136,5 @@ int main(int argc, char ** argv) {
 
 	}
 	
-	/*		
-	printPreorder(root);
-	cout << endl;
-	printPostorder(root);
-	cout << endl;
-	printInorder(root);
-	*/
-	input.close();	
-
 	return 0;
 }
