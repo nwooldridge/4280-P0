@@ -30,8 +30,14 @@ int main(int argc, char ** argv) {
 		exit(-1);
 	}
 	if (argc == 1) { //if no file is passed, reads from stdin
-		
-		isFileGiven = false;
+	
+
+		while (getline(cin, line)) {
+
+                        lineArray.push_back(line + "\n");
+
+                }
+
 
 	}
 	else { //filename was given as a parameter
@@ -43,27 +49,13 @@ int main(int argc, char ** argv) {
 			fprintf(stderr, "No such file or directory: %s\n", filename.c_str());
 			exit(-1);
 		}
-	}
-	
-	if (isFileGiven) {
+		 //stores each line into a string vector
+		 while (getline(input, line)) {
+		 	lineArray.push_back(line + "\n");
+		 
+		 }
+		input.close();
 
-		//stores each line into a string vector
-		while (getline(input, line)) {
-
-			lineArray.push_back(line + "\n");
-
-		}
-	}
-
-	input.close();
-	
-	else {
-	
-		while (getline(cin, line)) {
-
-                        lineArray.push_back(line + "\n");
-
-                }
 	}
 
 	//iterates through each line and parses into strings separated by whitespace	
@@ -111,13 +103,13 @@ int main(int argc, char ** argv) {
 	if (isFileGiven) {
 
 		outfile.open((filename.substr(0, filename.find(".")) + ".preorder").c_str(), fstream::out);
-		printPreorder(root, &outfile);
+		printPreorder(root, &outfile, 0);
 		outfile.close();
 		outfile.open((filename.substr(0, filename.find(".")) + ".postorder").c_str(), fstream::out);	
-		printPostorder(root, &outfile);
+		printPostorder(root, &outfile, 0);
 		outfile.close();
 		outfile.open((filename.substr(0, filename.find(".")) + ".inorder").c_str(), fstream::out);
-		printInorder(root, &outfile);
+		printInorder(root, &outfile, 0);
 		outfile.close();
 
 	}
@@ -125,13 +117,13 @@ int main(int argc, char ** argv) {
 	else {
 		
 		outfile.open("out.preorder", fstream::out);
-		printPreorder(root, &outfile);
+		printPreorder(root, &outfile, 0);
 		outfile.close();
 		outfile.open("out.postorder", fstream::out);
-		printPostorder(root, &outfile);
+		printPostorder(root, &outfile, 0);
 		outfile.close();
 		outfile.open("out.inorder", fstream::out);
-		printInorder(root, &outfile);
+		printInorder(root, &outfile, 0);
 		outfile.close();
 
 	}

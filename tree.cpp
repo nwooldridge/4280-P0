@@ -21,44 +21,53 @@ node * buildTree(string * arr, int length) {
 	return root;	
 }
 
-void printPreorder(node * root, ofstream * outfile) {
+void printPreorder(node * root, ofstream * outfile, int level) {
 
 	
 	if (root == NULL)
 		return;
-
-	*outfile << root->value << " ";
-
-	printPreorder(root->left, outfile);
 	
-	printPreorder(root->right, outfile);
+	for (int i = 0; i != level; i++)
+		*outfile << " "; 
+
+	*outfile << root->value << endl;
+
+	printPreorder(root->left, outfile, level + 1);
+	
+	printPreorder(root->right, outfile, level + 1);
 	
 
 }
 
-void printPostorder(node * root, ofstream * outfile) {
+void printPostorder(node * root, ofstream * outfile, int level) {
 
 	if (root == NULL)
 		return;
 
-	printPostorder(root->left, outfile);
+	printPostorder(root->left, outfile, level + 1);
 
-	printPostorder(root->right, outfile);
+	printPostorder(root->right, outfile, level + 1);
 	
-	*outfile << root->value << " ";
+	for (int i = 0; i != level; i++)
+                *outfile << " ";
+
+	*outfile << root->value << endl;
 
 } 
 
-void printInorder(node * root, ofstream * outfile) {
+void printInorder(node * root, ofstream * outfile, int level) {
 
 	if (root == NULL)
 		return;
 
-	printInorder(root->left, outfile);
+	printInorder(root->left, outfile, level + 1);
 
-	*outfile << root->value << " ";
+	for (int i = 0; i != level; i++)
+                *outfile << " ";
 
-	printInorder(root->right, outfile);
+	*outfile << root->value << endl;
+
+	printInorder(root->right, outfile, level + 1);
 
 }
 

@@ -9,6 +9,6 @@
 #endif
 
 node * buildTree(std::string*, int);
-void printPreorder(node *, std::ofstream * outfile);
-void printPostorder(node *, std::ofstream * outfile);
-void printInorder(node *, std::ofstream * outfile);
+void printPreorder(node *, std::ofstream *, int);
+void printPostorder(node *, std::ofstream *, int);
+void printInorder(node *, std::ofstream *, int);

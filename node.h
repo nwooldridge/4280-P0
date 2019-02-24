@@ -8,7 +8,7 @@ struct node{
 	
 	node * left;
 	node * right;
-	std::string value;
+	std::string value;	
 
 };
 #endif
