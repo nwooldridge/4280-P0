@@ -11,6 +11,6 @@ make <clean> - cleans up project (deletes executable, object, and output files)
 ./P0 <input file>(optional) - run the file
 
 Project was created with .input1 extension in mind, so if you provide a file, must have .input1 extension. Extension is appended in code
-so if you were to be testing with test.input1 file, you would run ./P0 <test> 
+so if you were to be testing with test.input1 file, you would run ./P0 (test) 
 
 For more information, please see programming specification. 
